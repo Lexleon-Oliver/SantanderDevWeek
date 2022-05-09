@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DATABASE_SERVER_NAME}:5433/banklinedb
+    username: ${DATABASE_USER_NAME}
+    password: ${DATABASE_USER_PASSWORD}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      # dont do this in production!!
+      ddl-auto: update
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+server:
+  port: 8090
+  shutdown: graceful
+  servlet:
+    context-path: /api
